@@ -210,7 +210,7 @@ protected:
 	std::string _msg;
 
 public:
-	virtual const char* what() throw() {
+	virtual const char* what() const throw() {
 		return _msg.c_str();
 	}
 
