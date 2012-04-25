@@ -389,7 +389,7 @@ class TCont {
         inline TContIOStatus ReadExactI(SOCKET fd, void* buf, size_t len) {
         	size_t left = len;
         	while (left > 0) {
-        		TContIOStatus status = ReadI(fd, buf, left);
+        		TContIOStatus status = ReadI(fd, (char*)(buf) + (len - left), left);
         		if (status.Status())
         			return status;
         		left -= status.Processed();
